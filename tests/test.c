@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include "dst_array.h"
 
@@ -13,6 +14,7 @@ void    free_mat(char **mat)
     {
         len = strlen(*mat_pt);
         write(STDOUT_FILENO, *mat_pt, len);
+        write(STDOUT_FILENO, "\n", 1);
         free(*mat_pt++); 
     }
     free(mat);
@@ -26,7 +28,7 @@ int main(int argc, const char *argv[])
 
     len = strlen(*(argv+1));
 
-    if ((size_t)(argc + 1) != len)
+    if ((size_t)(argc - 1) != len)
         return (EXIT_FAILURE);
 
     i = 0;
