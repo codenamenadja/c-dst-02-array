@@ -18,8 +18,8 @@ $(NAME): $(OBJECTS)
 
 .PHONY: test
 test: $(TESTS)
-	$(CC) -Wall -Werror -Wextra -Iincludes tests/tests.c $(NAME) includes/libft_ctype.a -o tests/test.out
-	./tests/test.out
+	$(CC) -Wall -Werror -Wextra -Iincludes tests/test.c $(NAME) -o tests/test.out
+	./tests/test.out 006000 500070 000300 000111 890000 000201
 	/bin/rm -f tests/test.out
 
 .PHONY: clean
