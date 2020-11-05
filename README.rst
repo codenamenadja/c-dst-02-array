@@ -51,3 +51,44 @@ DST Array in C
 - RETURNS::
 
    ``t_term **`` with twisted row and col of t_term structs excepts first pointer
+
+03 POLY_ADD
+-----------
+
+.. code-block:: c
+    
+   #define MAX_TERMS 20
+
+   typedef struct  m_poly
+   {
+       unsigned char   coef;
+       unsigned char   exp;
+   }               t_poly;
+
+   int         ft_poly_cmp(t_poly *dst, t_poly *src);
+   int         ft_poly_append(t_poly **terms, t_poly **avail, unsigned char coef, unsigned char exp);
+   t_poly      **ft_poly_add(t_poly **terms, t_poly **as, t_poly **ae, t_poly **bs, t_poly **be, t_poly **avail);
+
+- DESC::
+
+   summation two polynomial in array, and appends to its end of array.
+
+- PARAMS::
+
+   terms
+      An array storing type of model of polynomials.
+
+   as, bs
+      A pointer of A-polynomial and B-polynomial meaning Start of that.
+
+   ae, be
+      A pointer of A-polynomial and B-polynomial meaning End of that.
+
+   avail
+      An End + 1 address of ``be`` initially, changes as it appends,
+      meaning sequence to append on edge of ``terms``
+      basically storing non Polynomial data. excepts reaches to MAX_TERMS.
+
+- RETURNS::
+
+   A Pointer that delegetes the new allocated start point in ``terms`` array.
